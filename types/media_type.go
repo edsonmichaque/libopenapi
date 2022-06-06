@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type MediaType struct {
 	Schema   *Schema            `json:"schema,omitempty" yaml:"schema,omitempty"`

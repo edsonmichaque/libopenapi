@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Contact struct {
 	Name  string `json:"name,omitempty" yaml:"name,omitempty"`

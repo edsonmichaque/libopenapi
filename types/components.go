@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Components struct {
 	Schemas         map[string]Schema              `json:"schemas,omitempty" yaml:"schemas,omitempty"`

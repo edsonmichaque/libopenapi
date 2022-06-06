@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Encoding struct {
 	ContentType   string            `json:"contentType,omitempty" yaml:"contentType,omitempty"`

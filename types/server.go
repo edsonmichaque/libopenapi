@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Server struct {
 	URL         string                    `json:"url" yaml:"url"`

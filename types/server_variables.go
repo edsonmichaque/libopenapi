@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type ServerVariable struct {
 	Enum        []string `json:"enum" yaml:"enum"`

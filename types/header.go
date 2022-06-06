@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Header struct {
 	*Reference   `yaml:",inline"`

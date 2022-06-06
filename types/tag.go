@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Tag struct {
 	Name         string        `json:"name" yaml:"name"`

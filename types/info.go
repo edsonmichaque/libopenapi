@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Info struct {
 	Title         string   `json:"title,omitempty" yaml:"title,omitempty"`

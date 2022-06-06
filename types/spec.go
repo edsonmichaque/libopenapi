@@ -1,23 +1,4 @@
-package oas3
-
-type Option func(*Spec)
-
-type Parser interface {
-	Parse() (*Spec, error)
-}
-
-func New(parser Parser, options ...Option) (*Spec, error) {
-	openapi, err := parser.Parse()
-	if err != nil {
-		return nil, err
-	}
-
-	for _, option := range options {
-		option(openapi)
-	}
-
-	return openapi, nil
-}
+package types
 
 type Spec struct {
 	OpenAPI      string                `json:"openapi" yaml:"openapi"`

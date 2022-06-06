@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type ExternalDocs struct {
 	URL         string `json:"url" yaml:"url"`

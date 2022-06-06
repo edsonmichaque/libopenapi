@@ -1,4 +1,4 @@
-package oas3
+package types
 
 type Link struct {
 	*Reference `yaml:",inline"`
