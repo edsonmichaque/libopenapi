@@ -3,7 +3,7 @@ package umbeluzi
 import "github.com/edsonmichaque/umbeluzi/types"
 
 type Option interface {
-	Apply(*doc)
+	Apply(*Document)
 }
 
 type validator interface {
@@ -20,6 +20,6 @@ type withValidator struct {
 	v validator
 }
 
-func (wv withValidator) Apply(d *doc) {
+func (wv withValidator) Apply(d *Document) {
 	d.v = append(d.v, wv.v)
 }
