@@ -6,29 +6,31 @@ import (
 )
 
 func New(dec Decoder, options ...Option) (*types.Spec, error) {
-	validators := []Validator{
-		validator.SpecValidator{},
-		validator.TagValidator{},
+	validators := []Option{
+		WithValidator(validator.New()),
 	}
 
-	return newSpec(dec, validators, options...)
+	return newBuilder(dec, append(options, validators...)...)
 }
 
-func newSpec(dec Decoder, vs []Validator, options ...Option) (*types.Spec, error) {
+func newBuilder(dec Decoder, options ...Option) (*types.Spec, error) {
 	spec, err := dec.Decode()
 	if err != nil {
 		return nil, err
 	}
 
-	for _, option := range options {
-		option.Apply(spec)
+	doc := doc{
+		s: spec,
 	}
 
-	for _, v := range vs {
-		if err := v.Validate(spec); err != nil {
-			return nil, err
-		}
+	for _, option := range options {
+		option.Apply(&doc)
 	}
 
 	return spec, nil
+}
+
+type doc struct {
+	s *types.Spec
+	v []Validator
 }

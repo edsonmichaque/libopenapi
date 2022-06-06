@@ -4,8 +4,12 @@ import (
 	"github.com/edsonmichaque/libopenapi/types"
 )
 
-type TagValidator struct{}
+type Tag struct{}
 
-func (tv TagValidator) Validate(s *types.Spec) error {
+func (tv License) Validate(s *types.Spec) error {
 	return ErrNotImplemented
+}
+
+func NewTagValidator() Tag {
+	return Tag{}
 }
