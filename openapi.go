@@ -2,12 +2,11 @@ package libopenapi
 
 import (
 	"github.com/edsonmichaque/libopenapi/types"
-	"github.com/edsonmichaque/libopenapi/validator"
 )
 
 func New(dec Decoder, options ...Option) (*types.Spec, error) {
 	validators := []Option{
-		WithValidator(validator.New()),
+		WithValidator(newSpecValidator()),
 	}
 
 	return newBuilder(dec, append(options, validators...)...)
