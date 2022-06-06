@@ -1,7 +1,7 @@
 package types
 
 type Tag struct {
-	Name         string        `json:"name" yaml:"name"`
-	Description  string        `json:"description" yaml:"description"`
+	Name         string        `json:"name,omitempty" yaml:"name,omitempty"`
+	Description  string        `json:"description,omitempty" yaml:"description,omitempty"`
 	ExternalDocs *ExternalDocs `json:"externalDocs,omitempty" yaml:"externalDocs,omitempty"`
 }

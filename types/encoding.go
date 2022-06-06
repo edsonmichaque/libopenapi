@@ -5,5 +5,5 @@ type Encoding struct {
 	Headers       map[string]Header `json:"headers,omitempty" yaml:"headers,omitempty"`
 	Style         string            `json:"style,omitempty" yaml:"style,omitempty"`
 	Explode       bool              `json:"explode,omitempty" yaml:"explode,omitempty"`
-	AllowReserved bool              `json:"allowReserved" yaml:"allowReserved"`
+	AllowReserved bool              `json:"allowReserved,omitempty" yaml:"allowReserved,omitempty"`
 }

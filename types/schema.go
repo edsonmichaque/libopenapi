@@ -128,16 +128,6 @@ func (s Schema) validateType() error {
 	return nil
 }
 
-// func (s Schema) validateFormat() error {
-// 	formats := builtinFormats()[s.Type]
-
-// 	if !contains(formats, s.Format) {
-// 		return fmt.Errorf("format %s is not valid", s.Type)
-// 	}
-
-// 	return nil
-// }
-
 func (s Schema) Validate() error {
 	if s.hasReference() && s.hasValue() {
 		return errors.New("value and reference cannot be both defined")
