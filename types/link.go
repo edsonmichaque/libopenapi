@@ -1,7 +1,7 @@
 package types
 
 type Link struct {
-	*Reference `yaml:",inline"`
+	*Ref       `yaml:",inline"`
 	*LinkValue `yaml:",inline"`
 }
 

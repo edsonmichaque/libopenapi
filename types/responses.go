@@ -1,7 +1,7 @@
 package types
 
 type Response struct {
-	*Reference     `yaml:",inline"`
+	*Ref           `yaml:",inline"`
 	*ResponseValue `yaml:",inline"`
 }
 

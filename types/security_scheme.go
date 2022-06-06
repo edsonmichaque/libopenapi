@@ -1,7 +1,7 @@
 package types
 
 type SecurityScheme struct {
-	*Reference           `yaml:",inline"`
+	*Ref                 `yaml:",inline"`
 	*SecuritySchemeValue `yaml:",inline"`
 }
 

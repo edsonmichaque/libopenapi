@@ -1,7 +1,7 @@
 package types
 
 type Example struct {
-	*Reference    `yaml:",inline"`
+	*Ref          `yaml:",inline"`
 	*ExampleValue `yaml:",inline"`
 }
 

@@ -1,7 +1,7 @@
 package types
 
 type Parameter struct {
-	*Reference      `yaml:",inline"`
+	*Ref            `yaml:",inline"`
 	*ParameterValue `yaml:",inline"`
 }
 

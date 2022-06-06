@@ -1,7 +1,7 @@
 package types
 
 type Header struct {
-	*Reference   `yaml:",inline"`
+	*Ref         `yaml:",inline"`
 	*HeaderValue `yaml:",inline"`
 }
 

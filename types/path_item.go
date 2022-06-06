@@ -1,7 +1,7 @@
 package types
 
 type PathItem struct {
-	*Reference     `yaml:",inline"`
+	*Ref           `yaml:",inline"`
 	*PathItemValue `yaml:",inline"`
 }
 

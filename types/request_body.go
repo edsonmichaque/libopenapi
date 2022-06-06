@@ -1,7 +1,7 @@
 package types
 
 type RequestBody struct {
-	*Reference        `yaml:",inline"`
+	*Ref              `yaml:",inline"`
 	*RequestBodyValue `yaml:",inline"`
 }
 

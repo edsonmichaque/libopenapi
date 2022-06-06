@@ -6,11 +6,11 @@ import (
 )
 
 type Schema struct {
-	*Reference   `yaml:",inline"`
+	*Ref         `yaml:",inline"`
 	*SchemaValue `yaml:",inline"`
 }
 
-type Reference struct {
+type Ref struct {
 	Ref *string `json:"$ref,omitempty" yaml:"$ref,omitempty"`
 }
 
@@ -53,67 +53,63 @@ type SchemaValue struct {
 }
 
 type Discriminator struct {
-	PropertyName string            `json:"propertyName" yaml:"propertyName"`
+	PropertyName string            `json:"propertyName,omitempty" yaml:"propertyName,omitempty"`
 	Mapping      map[string]string `json:"mapping,omitempty" yaml:"mapping,omitempty"`
 }
 
-func builtinFormats() map[string][]string {
-	return map[string][]string{
-		"string": {
-			"email",
-			"date",
-			"date-time",
-			"password",
-			"byte",
-			"binary",
-			"duration",
+var BuiltinFormats = map[string][]string{
+	"string": {
+		"email",
+		"date",
+		"date-time",
+		"password",
+		"byte",
+		"binary",
+		"duration",
 
-			"idn-email",
-			"hostname",
-			"idn-hostname",
+		"idn-email",
+		"hostname",
+		"idn-hostname",
 
-			"ipv4",
-			"ipv6",
+		"ipv4",
+		"ipv6",
 
-			"uuid",
+		"uuid",
 
-			"uri",
-			"uri-reference",
+		"uri",
+		"uri-reference",
 
-			"iri",
-			"iri-reference",
+		"iri",
+		"iri-reference",
 
-			"regex",
-			"uri-template",
+		"regex",
+		"uri-template",
 
-			"json-pointer",
-			"relative-json-pointer",
-		},
-		"integer": {
-			"int32",
-			"int64",
-		},
-		"number": {
-			"float",
-			"double",
-		},
-	}
+		"json-pointer",
+		"relative-json-pointer",
+	},
+	"integer": {
+		"int32",
+		"int64",
+	},
+	"number": {
+		"float",
+		"double",
+	},
 }
 
-func builtinTypes() []string {
-	return []string{
-		"string",
-		"number",
-		"integer",
-		"null",
-		"object",
-		"array",
-		"boolean",
-	}
+var BuiltinTypes = []string{
+	"string",
+	"number",
+	"integer",
+	"null",
+	"object",
+	"array",
+	"boolean",
 }
 
 func (s Schema) hasReference() bool {
-	return s.Reference != nil
+	return s.Ref != nil
 }
 
 func (s Schema) hasValue() bool {
@@ -121,7 +117,7 @@ func (s Schema) hasValue() bool {
 }
 
 func (s Schema) validateType() error {
-	if !contains(builtinTypes(), s.Type) {
+	if !contains(BuiltinTypes, s.Type) {
 		return fmt.Errorf("type %s is not valid", s.Type)
 	}
 

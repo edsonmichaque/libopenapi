@@ -1,8 +1,8 @@
 package types
 
 type XML struct {
-	*Reference `yaml:",inline"`
-	*XMLValue  `yaml:",inline"`
+	*Ref      `yaml:",inline"`
+	*XMLValue `yaml:",inline"`
 }
 
 type XMLValue struct {
