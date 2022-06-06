@@ -4,6 +4,8 @@ import (
 	"github.com/edsonmichaque/libopenapi/types"
 )
 
-func Spec(s *types.Spec) error {
+type SpecValidator struct{}
+
+func (sv SpecValidator) Validate(s *types.Spec) error {
 	return ErrNotImplemented
 }

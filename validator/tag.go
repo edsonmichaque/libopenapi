@@ -1,15 +1,11 @@
 package validator
 
 import (
-	"errors"
-
 	"github.com/edsonmichaque/libopenapi/types"
 )
 
-var (
-	ErrNotImplemented = errors.New("libopenapi: not implemented")
-)
+type TagValidator struct{}
 
-func Tag(s *types.Spec) error {
+func (tv TagValidator) Validate(s *types.Spec) error {
 	return ErrNotImplemented
 }

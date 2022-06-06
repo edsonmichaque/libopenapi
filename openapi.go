@@ -6,15 +6,15 @@ import (
 )
 
 func New(dec Decoder, options ...Option) (*types.Spec, error) {
-	validators := []func(*types.Spec) error{
-		validator.Spec,
-		validator.Tag,
+	validators := []Validator{
+		validator.SpecValidator{},
+		validator.TagValidator{},
 	}
 
 	return newSpec(dec, validators, options...)
 }
 
-func newSpec(dec Decoder, validators []func(*types.Spec) error, options ...Option) (*types.Spec, error) {
+func newSpec(dec Decoder, vs []Validator, options ...Option) (*types.Spec, error) {
 	spec, err := dec.Decode()
 	if err != nil {
 		return nil, err
@@ -24,8 +24,8 @@ func newSpec(dec Decoder, validators []func(*types.Spec) error, options ...Optio
 		option.Apply(spec)
 	}
 
-	for _, v := range validators {
-		if err := v(spec); err != nil {
+	for _, v := range vs {
+		if err := v.Validate(spec); err != nil {
 			return nil, err
 		}
 	}
