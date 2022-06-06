@@ -1,7 +1,7 @@
-package libopenapi
+package umbeluzi
 
 import (
-	"github.com/edsonmichaque/libopenapi/types"
+	"github.com/edsonmichaque/umbeluzi/types"
 )
 
 func New(dec Decoder, options ...Option) (*types.Spec, error) {
@@ -31,5 +31,5 @@ func newBuilder(dec Decoder, options ...Option) (*types.Spec, error) {
 
 type doc struct {
 	s *types.Spec
-	v []Validator
+	v []validator
 }

@@ -1,5 +1,5 @@
-module github.com/edsonmichaque/go-openapi
+module github.com/edsonmichaque/umbeluzi
 
 go 1.17
 
-replace github.com/edsonmichaque/go-openapi => ./
+replace github.com/edsonmichaque/umbeluzi => ./

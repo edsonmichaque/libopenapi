@@ -1,23 +1,23 @@
-package libopenapi
+package umbeluzi
 
-import "github.com/edsonmichaque/libopenapi/types"
+import "github.com/edsonmichaque/umbeluzi/types"
 
 type Option interface {
 	Apply(*doc)
 }
 
-type Validator interface {
+type validator interface {
 	Validate(*types.Spec) error
 }
 
-func WithValidator(v Validator) Option {
+func WithValidator(v validator) Option {
 	return withValidator{
 		v: v,
 	}
 }
 
 type withValidator struct {
-	v Validator
+	v validator
 }
 
 func (wv withValidator) Apply(d *doc) {

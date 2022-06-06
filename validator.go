@@ -1,13 +1,13 @@
-package libopenapi
+package umbeluzi
 
 import (
 	"errors"
 
-	"github.com/edsonmichaque/libopenapi/types"
+	"github.com/edsonmichaque/umbeluzi/types"
 )
 
 var (
-	ErrNotImplemented = errors.New("libopenapi: not implemented")
+	ErrNotImplemented = errors.New("umbeluzi: not implemented")
 )
 
 type operationValidator struct{}
